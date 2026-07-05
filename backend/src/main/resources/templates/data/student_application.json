@@ -1,0 +1,47 @@
+{
+  "id": "student_application",
+  "name": "Student Application Form",
+  "description": "Admission enrollment form for educational institutions",
+  "fields": [
+    {
+      "name": "studentName",
+      "label": "Student Name",
+      "type": "text",
+      "required": true
+    },
+    {
+      "name": "fatherName",
+      "label": "Father's Name",
+      "type": "text",
+      "required": true
+    },
+    {
+      "name": "address",
+      "label": "Address",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "name": "dob",
+      "label": "Date of Birth",
+      "type": "date",
+      "required": true
+    },
+    {
+      "name": "phone",
+      "label": "Phone Number",
+      "type": "phone",
+      "required": true,
+      "validationRegex": "^\\+?[0-9\\s\\-\\(\\)]{10,20}$",
+      "validationMessage": "Please enter a valid phone number (10-20 digits)."
+    },
+    {
+      "name": "email",
+      "label": "Email Address",
+      "type": "email",
+      "required": true,
+      "validationRegex": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
+      "validationMessage": "Please enter a valid email address."
+    }
+  ]
+}

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Quotation</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 20mm;
+        }
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .quotation-box {
+            max-width: 800px;
+            margin: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+        td {
+            padding: 8px;
+            vertical-align: top;
+        }
+        .header-table td {
+            padding: 0;
+        }
+        .quotation-title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #0f766e;
+            text-transform: uppercase;
+        }
+        .quotation-details {
+            text-align: right;
+        }
+        .quotation-details span {
+            display: block;
+        }
+        .billing-info {
+            margin-bottom: 40px;
+            margin-top: 20px;
+        }
+        .section-title {
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #4b5563;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+        .items-table {
+            margin-bottom: 40px;
+            margin-top: 20px;
+        }
+        .items-table th {
+            background-color: #0f766e;
+            color: #ffffff;
+            font-weight: bold;
+            padding: 10px;
+            font-size: 13px;
+            text-transform: uppercase;
+        }
+        .items-table td {
+            padding: 12px 10px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .items-table tr.total-row td {
+            border-top: 2px solid #0f766e;
+            border-bottom: none;
+            font-weight: bold;
+            font-size: 16px;
+            color: #0f766e;
+        }
+        .signature-section {
+            margin-top: 60px;
+        }
+        .signature-line {
+            border-top: 1px solid #9ca3af;
+            margin-top: 40px;
+            padding-top: 8px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 13px;
+            color: #4b5563;
+        }
+        .footer {
+            margin-top: 60px;
+            text-align: center;
+            font-size: 12px;
+            color: #9ca3af;
+            border-top: 1px solid #e5e7eb;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="quotation-box">
+        <table class="header-table">
+            <tr>
+                <td>
+                    <div class="quotation-title">QUOTATION</div>
+                    <div style="font-weight: bold; margin-top: 5px;">DocGen System Corp.</div>
+                    <div style="color: #6b7280; font-size: 12px;">123 Innovation Way, Tech Park, CA 94016</div>
+                </td>
+                <td class="quotation-details">
+                    <span style="font-size: 16px; font-weight: bold; color: #0f766e;">#{{quotationNumber}}</span>
+                    <span><strong>Date:</strong> {{date}}</span>
+                    <span>Valid For: 30 Days</span>
+                </td>
+            </tr>
+        </table>
+
+        <table class="billing-info">
+            <tr>
+                <td style="width: 55%; padding-left: 0;">
+                    <div class="section-title">Prepared For</div>
+                    <div style="font-weight: bold; font-size: 15px; margin-bottom: 4px;">{{clientName}}</div>
+                </td>
+                <td style="width: 45%; padding-right: 0;">
+                    <!-- Empty side column -->
+                </td>
+            </tr>
+        </table>
+
+        <table class="items-table">
+            <thead>
+                <tr>
+                    <th>Description of Services</th>
+                    <th style="width: 25%; text-align: right;">Total Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="white-space: pre-wrap; line-height: 1.5;">{{serviceDescription}}</td>
+                    <td style="text-align: right; font-weight: bold;">${{price}}</td>
+                </tr>
+                <tr class="total-row">
+                    <td style="text-align: right; padding-right: 10px;">Total Quotation:</td>
+                    <td style="text-align: right;">${{price}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="signature-section">
+            <tr>
+                <td style="width: 40%; padding-left: 0;">
+                    <div class="signature-line">Client Acceptance (Date &amp; Sign)</div>
+                </td>
+                <td style="width: 20%;"></td>
+                <td style="width: 40%; padding-right: 0;">
+                    <div class="signature-line">Authorized Signatory (DocGen)</div>
+                </td>
+            </tr>
+        </table>
+
+        <div class="footer">
+            This is a service estimate. Actual rates may vary depending on project changes. For queries, email quotes@docgensystem.com.
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+{
+  "id": "quotation",
+  "name": "Quotation",
+  "description": "Professional client service quotation template",
+  "fields": [
+    {
+      "name": "quotationNumber",
+      "label": "Quotation Number",
+      "type": "text",
+      "required": true
+    },
+    {
+      "name": "clientName",
+      "label": "Client Name",
+      "type": "text",
+      "required": true
+    },
+    {
+      "name": "serviceDescription",
+      "label": "Service Description",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "name": "price",
+      "label": "Price",
+      "type": "number",
+      "required": true
+    },
+    {
+      "name": "date",
+      "label": "Date",
+      "type": "date",
+      "required": true
+    }
+  ]
+}

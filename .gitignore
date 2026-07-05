@@ -1,0 +1,26 @@
+# =====================================================================
+# Root .gitignore — PDF Document Generator Project
+# =====================================================================
+
+# --- MySQL data directory (local development) ---
+mysql_data/
+docgen_mysql/
+
+# --- Environment secrets ---
+.env
+.env.local
+.env.production
+.env.*.local
+
+# --- OS files ---
+.DS_Store
+Thumbs.db
+
+# --- IDE files ---
+.idea/
+.vscode/
+*.iml
+
+# --- Logs ---
+*.log
+logs/

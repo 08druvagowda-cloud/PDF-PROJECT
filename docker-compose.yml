@@ -1,0 +1,62 @@
+# =====================================================================
+# docker-compose.yml — Local Development with Docker
+#
+# Usage:
+#   docker compose up --build       # First run (builds image)
+#   docker compose up               # Subsequent runs
+#   docker compose down             # Stop containers
+#   docker compose down -v          # Stop and delete volumes (wipe DB)
+# =====================================================================
+
+version: '3.9'
+
+services:
+
+  # ---- MySQL Database ----
+  db:
+    image: mysql:8.0
+    container_name: docgen-db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: docgen
+      MYSQL_USER: docgen_user
+      MYSQL_PASSWORD: password123
+      MYSQL_ROOT_PASSWORD: rootpassword123
+    ports:
+      - "3307:3306"   # Map to 3307 on host to avoid conflict with local MySQL
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "docgen_user", "-ppassword123"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+  # ---- Spring Boot Application ----
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: docgen-app
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+      DATABASE_URL: jdbc:mysql://db:3306/docgen?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+      DB_USERNAME: docgen_user
+      DB_PASSWORD: password123
+      PDF_STORAGE_DIR: /app/generated_pdfs
+      PORT: 8080
+    volumes:
+      - pdf_data:/app/generated_pdfs
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  mysql_data:
+    driver: local
+  pdf_data:
+    driver: local

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Salary Slip</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 20mm;
+        }
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        .payslip-box {
+            max-width: 800px;
+            margin: auto;
+            border: 1px solid #d1d5db;
+            padding: 25px;
+            background-color: #ffffff;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+        td {
+            padding: 6px 8px;
+            vertical-align: top;
+        }
+        .header-table td {
+            padding: 0;
+        }
+        .payslip-title {
+            font-size: 28px;
+            font-weight: bold;
+            color: #1f2937;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        .company-name {
+            font-size: 16px;
+            font-weight: bold;
+            color: #3b82f6;
+        }
+        .meta-table {
+            margin-top: 20px;
+            margin-bottom: 25px;
+            border: 1px solid #e5e7eb;
+        }
+        .meta-table td {
+            border: 1px solid #e5e7eb;
+            padding: 8px 10px;
+        }
+        .meta-table td.label {
+            font-weight: bold;
+            color: #4b5563;
+            background-color: #f9fafb;
+            width: 20%;
+        }
+        .meta-table td.val {
+            width: 30%;
+        }
+        .breakdown-table {
+            border: 1px solid #e5e7eb;
+            margin-bottom: 25px;
+        }
+        .breakdown-table th {
+            background-color: #4b5563;
+            color: #ffffff;
+            font-weight: bold;
+            padding: 8px 10px;
+            font-size: 12px;
+            text-transform: uppercase;
+            border: 1px solid #4b5563;
+        }
+        .breakdown-table td {
+            border: 1px solid #e5e7eb;
+            padding: 10px;
+        }
+        .net-salary-table {
+            border: 1px solid #3b82f6;
+            margin-bottom: 30px;
+            background-color: #eff6ff;
+        }
+        .net-salary-table td {
+            padding: 12px 15px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #1e3a8a;
+        }
+        .sig-section {
+            margin-top: 65px;
+        }
+        .sig-line {
+            border-top: 1px solid #9ca3af;
+            width: 60%;
+            margin-top: 30px;
+            padding-top: 5px;
+            text-align: center;
+            font-size: 11px;
+            font-weight: bold;
+            color: #4b5563;
+        }
+    </style>
+</head>
+<body>
+    <div class="payslip-box">
+        <table class="header-table">
+            <tr>
+                <td>
+                    <div class="company-name">DocGen System Corp.</div>
+                    <div style="color: #6b7280; font-size: 12px;">123 Innovation Way, Tech Park, CA 94016</div>
+                </td>
+                <td style="text-align: right;">
+                    <div class="payslip-title">PAYSLIP</div>
+                    <div style="font-weight: bold; color: #4b5563;">Statement of Earnings</div>
+                </td>
+            </tr>
+        </table>
+
+        <table class="meta-table">
+            <tr>
+                <td class="label">Employee Name</td>
+                <td class="val" style="font-weight: bold;">{{employeeName}}</td>
+                <td class="label">Employee ID</td>
+                <td class="val">{{employeeId}}</td>
+            </tr>
+            <tr>
+                <td class="label">Department</td>
+                <td class="val">{{department}}</td>
+                <td class="label">Pay Period</td>
+                <td class="val">Current Month</td>
+            </tr>
+        </table>
+
+        <table class="breakdown-table">
+            <thead>
+                <tr>
+                    <th style="width: 50%;">Earnings</th>
+                    <th style="width: 50%;">Deductions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="padding: 0;">
+                        <table style="width: 100%;">
+                            <tr>
+                                <td style="border: none;">Basic Salary</td>
+                                <td style="border: none; text-align: right; font-weight: bold;">${{salary}}</td>
+                            </tr>
+                            <tr>
+                                <td style="border: none;">Bonus / Allowances</td>
+                                <td style="border: none; text-align: right; font-weight: bold;">${{bonus}}</td>
+                            </tr>
+                            <tr style="height: 60px;">
+                                <td style="border: none;"></td>
+                                <td style="border: none;"></td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td style="padding: 0; border-left: 1px solid #e5e7eb;">
+                        <table style="width: 100%;">
+                            <tr>
+                                <td style="border: none;">Deductions</td>
+                                <td style="border: none; text-align: right; font-weight: bold; color: #dc2626;">${{deductions}}</td>
+                            </tr>
+                            <tr style="height: 100px;">
+                                <td style="border: none;"></td>
+                                <td style="border: none;"></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="net-salary-table">
+            <tr>
+                <td>NET SALARY (Take-home Pay)</td>
+                <td style="text-align: right; font-size: 18px;">${{netSalary}}</td>
+            </tr>
+        </table>
+
+        <table class="sig-section">
+            <tr>
+                <td style="width: 50%;">
+                    <div style="font-size: 11px; color: #6b7280; font-style: italic;">Note: This is a computer-generated document and does not require a physical signature unless requested.</div>
+                </td>
+                <td style="width: 50%; text-align: right;">
+                    <div class="sig-line" style="margin-left: auto;">Employer Signature</div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

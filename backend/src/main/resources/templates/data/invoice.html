@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Invoice</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 20mm;
+        }
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .invoice-box {
+            max-width: 800px;
+            margin: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+        td {
+            padding: 8px;
+            vertical-align: top;
+        }
+        .header-table td {
+            padding: 0;
+        }
+        .invoice-title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #1e3a8a;
+            text-transform: uppercase;
+        }
+        .invoice-details {
+            text-align: right;
+        }
+        .invoice-details span {
+            display: block;
+        }
+        .billing-info {
+            margin-bottom: 40px;
+            margin-top: 20px;
+        }
+        .section-title {
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #4b5563;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+        .items-table {
+            margin-bottom: 30px;
+            margin-top: 20px;
+        }
+        .items-table th {
+            background-color: #1e3a8a;
+            color: #ffffff;
+            font-weight: bold;
+            padding: 10px;
+            font-size: 13px;
+            text-transform: uppercase;
+        }
+        .items-table td {
+            padding: 12px 10px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .items-table tr.total-row td {
+            border-top: 2px solid #1e3a8a;
+            border-bottom: none;
+            font-weight: bold;
+            font-size: 16px;
+            color: #1e3a8a;
+        }
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 12px;
+            color: #9ca3af;
+            border-top: 1px solid #e5e7eb;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="invoice-box">
+        <table class="header-table">
+            <tr>
+                <td>
+                    <div class="invoice-title">INVOICE</div>
+                    <div style="font-weight: bold; margin-top: 5px;">DocGen System Corp.</div>
+                    <div style="color: #6b7280; font-size: 12px;">123 Innovation Way, Tech Park, CA 94016</div>
+                </td>
+                <td class="invoice-details">
+                    <span style="font-size: 16px; font-weight: bold; color: #1e3a8a;">#{{invoiceNumber}}</span>
+                    <span><strong>Date:</strong> {{date}}</span>
+                </td>
+            </tr>
+        </table>
+
+        <table class="billing-info">
+            <tr>
+                <td style="width: 55%; padding-left: 0;">
+                    <div class="section-title">Billed To</div>
+                    <div style="font-weight: bold; font-size: 15px; margin-bottom: 4px;">{{customerName}}</div>
+                    <div style="color: #4b5563; white-space: pre-wrap; line-height: 1.4;">{{customerAddress}}</div>
+                </td>
+                <td style="width: 45%; padding-right: 0;">
+                    <!-- Empty side column for layout alignment -->
+                </td>
+            </tr>
+        </table>
+
+        <table class="items-table">
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th style="width: 15%; text-align: center;">Quantity</th>
+                    <th style="width: 20%; text-align: right;">Unit Price</th>
+                    <th style="width: 20%; text-align: right;">Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{productName}}</td>
+                    <td style="text-align: center;">{{quantity}}</td>
+                    <td style="text-align: right;">${{unitPrice}}</td>
+                    <td style="text-align: right;">${{totalAmount}}</td>
+                </tr>
+                <tr class="total-row">
+                    <td colspan="2"></td>
+                    <td style="text-align: right; padding-right: 10px;">Total Amount:</td>
+                    <td style="text-align: right;">${{totalAmount}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="footer">
+            Thank you for your business! If you have any questions, please contact billing@docgensystem.com.
+        </div>
+    </div>
+</body>
+</html>

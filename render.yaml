@@ -1,0 +1,32 @@
+# =====================================================================
+# render.yaml — Render.com Deployment Configuration (Infrastructure as Code)
+#
+# Deploy steps:
+# 1. Push code to GitHub
+# 2. Go to https://dashboard.render.com → New → Blueprint
+# 3. Connect your repo — Render reads this file automatically
+# 4. Set the DATABASE_URL secret in the Render dashboard
+#    (or use a Render-managed MySQL/PostgreSQL add-on)
+# =====================================================================
+
+services:
+  - type: web
+    name: docgen-app
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    plan: free           # Change to "starter" or "standard" for production
+    healthCheckPath: /api/templates
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: prod
+      - key: PORT
+        value: 8080
+      - key: DATABASE_URL
+        sync: false      # Set this secret manually in Render dashboard
+      - key: DB_USERNAME
+        sync: false      # Set this secret manually in Render dashboard
+      - key: DB_PASSWORD
+        sync: false      # Set this secret manually in Render dashboard
+      - key: PDF_STORAGE_DIR
+        value: /app/generated_pdfs

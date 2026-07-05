@@ -1,0 +1,47 @@
+# =====================================================================
+# .dockerignore — Exclude files from Docker build context
+# This keeps the build context small and prevents leaking secrets.
+# =====================================================================
+
+# --- Version Control ---
+.git
+.gitignore
+.gitattributes
+
+# --- Node.js ---
+frontend/node_modules
+frontend/.oxlintrc.json
+frontend/README.md
+
+# --- Maven build outputs ---
+backend/target
+
+# --- Generated PDFs (never commit or ship these) ---
+backend/generated_pdfs
+mysql_data
+
+# --- IDE and OS files ---
+.idea
+*.iml
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# --- Logs ---
+*.log
+logs/
+
+# --- Environment files (never include secrets in image) ---
+.env
+.env.local
+.env.production
+
+# --- Docker files (no need to copy into build context) ---
+docker-compose.yml
+Dockerfile
+.dockerignore
+
+# --- Documentation ---
+HELP.md
+README.md

@@ -1,0 +1,55 @@
+{
+  "id": "invoice",
+  "name": "Invoice",
+  "description": "Professional business invoice template",
+  "fields": [
+    {
+      "name": "invoiceNumber",
+      "label": "Invoice Number",
+      "type": "text",
+      "required": true
+    },
+    {
+      "name": "customerName",
+      "label": "Customer Name",
+      "type": "text",
+      "required": true
+    },
+    {
+      "name": "customerAddress",
+      "label": "Customer Address",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "name": "productName",
+      "label": "Product Name",
+      "type": "text",
+      "required": true
+    },
+    {
+      "name": "quantity",
+      "label": "Quantity",
+      "type": "number",
+      "required": true
+    },
+    {
+      "name": "unitPrice",
+      "label": "Unit Price",
+      "type": "number",
+      "required": true
+    },
+    {
+      "name": "totalAmount",
+      "label": "Total Amount",
+      "type": "number",
+      "required": true
+    },
+    {
+      "name": "date",
+      "label": "Date",
+      "type": "date",
+      "required": true
+    }
+  ]
+}

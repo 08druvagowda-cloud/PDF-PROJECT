@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Student Application Form</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 15mm;
+        }
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        .form-box {
+            max-width: 800px;
+            margin: auto;
+            border: 2px solid #1e3a8a;
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+        td {
+            padding: 8px;
+            vertical-align: middle;
+        }
+        .header-table {
+            border-bottom: 2px solid #1e3a8a;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        .form-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1e3a8a;
+            letter-spacing: 0.5px;
+        }
+        .subtitle {
+            font-size: 11px;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .photo-box {
+            width: 100px;
+            height: 120px;
+            border: 1px dashed #9ca3af;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 10px;
+            color: #6b7280;
+            float: right;
+        }
+        .section-header {
+            background-color: #1e3a8a;
+            color: #ffffff;
+            font-weight: bold;
+            padding: 6px 10px;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+        .data-table {
+            width: 100%;
+            margin-bottom: 15px;
+        }
+        .data-table td {
+            border: 1px solid #e5e7eb;
+            padding: 10px;
+        }
+        .data-table td.label-col {
+            background-color: #f9fafb;
+            font-weight: bold;
+            color: #374151;
+            width: 30%;
+        }
+        .data-table td.val-col {
+            width: 70%;
+        }
+        .declaration {
+            margin-top: 30px;
+            font-size: 11px;
+            color: #4b5563;
+            text-align: justify;
+            line-height: 1.4;
+        }
+        .signature-table {
+            margin-top: 50px;
+            margin-bottom: 20px;
+        }
+        .sig-line {
+            border-top: 1px solid #9ca3af;
+            width: 80%;
+            margin: auto;
+            text-align: center;
+            padding-top: 5px;
+            font-size: 11px;
+            color: #4b5563;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-box">
+        <table class="header-table">
+            <tr>
+                <td style="padding-left: 0;">
+                    <div class="form-title">APPLICATION FOR ADMISSION</div>
+                    <div class="subtitle">Academic Year 2026 - 2027</div>
+                    <div style="font-weight: bold; font-size: 13px; color: #1e3a8a; margin-top: 10px;">Excellence Academy of Sciences</div>
+                </td>
+                <td style="width: 120px; padding-right: 0;">
+                    <div class="photo-box">
+                        <div style="padding-top: 45px;">Affix Recent<br/>Passport Size<br/>Photograph</div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <div class="section-header">Student Personal Information</div>
+        <table class="data-table">
+            <tr>
+                <td class="label-col">Full Name of Student</td>
+                <td class="val-col" style="font-weight: bold; font-size: 14px;">{{studentName}}</td>
+            </tr>
+            <tr>
+                <td class="label-col">Father's / Guardian's Name</td>
+                <td class="val-col">{{fatherName}}</td>
+            </tr>
+            <tr>
+                <td class="label-col">Date of Birth</td>
+                <td class="val-col">{{dob}}</td>
+            </tr>
+        </table>
+
+        <div class="section-header">Contact &amp; Address Details</div>
+        <table class="data-table">
+            <tr>
+                <td class="label-col">Residential Address</td>
+                <td class="val-col" style="white-space: pre-wrap; line-height: 1.4;">{{address}}</td>
+            </tr>
+            <tr>
+                <td class="label-col">Mobile / Contact No.</td>
+                <td class="val-col">{{phone}}</td>
+            </tr>
+            <tr>
+                <td class="label-col">Email Address</td>
+                <td class="val-col">{{email}}</td>
+            </tr>
+        </table>
+
+        <div class="declaration">
+            <strong>Declaration:</strong> I hereby declare that all the particulars stated in this application form are true, complete, and correct to the best of my knowledge and belief. In the event of any information being found false or incorrect, my admission is liable to be cancelled.
+        </div>
+
+        <table class="signature-table">
+            <tr>
+                <td style="width: 50%;">
+                    <div class="sig-line">Signature of Parent / Guardian</div>
+                </td>
+                <td style="width: 50%;">
+                    <div class="sig-line">Signature of Applicant</div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

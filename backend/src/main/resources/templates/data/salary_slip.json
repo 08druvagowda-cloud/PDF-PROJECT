@@ -1,0 +1,49 @@
+{
+  "id": "salary_slip",
+  "name": "Salary Slip",
+  "description": "Monthly employee compensation pay slip template",
+  "fields": [
+    {
+      "name": "employeeName",
+      "label": "Employee Name",
+      "type": "text",
+      "required": true
+    },
+    {
+      "name": "employeeId",
+      "label": "Employee ID",
+      "type": "text",
+      "required": true
+    },
+    {
+      "name": "department",
+      "label": "Department",
+      "type": "text",
+      "required": true
+    },
+    {
+      "name": "salary",
+      "label": "Basic Salary",
+      "type": "number",
+      "required": true
+    },
+    {
+      "name": "bonus",
+      "label": "Bonus / Allowances",
+      "type": "number",
+      "required": true
+    },
+    {
+      "name": "deductions",
+      "label": "Deductions",
+      "type": "number",
+      "required": true
+    },
+    {
+      "name": "netSalary",
+      "label": "Net Salary",
+      "type": "number",
+      "required": true
+    }
+  ]
+}
