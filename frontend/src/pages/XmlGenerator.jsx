@@ -22,7 +22,7 @@ const DEFAULT_XML_TEMPLATE = `<?xml version="1.0" encoding="utf-8"?>
       <fo:block font-family="Helvetica" font-size="10pt" line-height="1.5" space-after="15pt">
         This document has been dynamically generated using the Apache FOP processor in the Spring Boot backend. Apache FOP allows direct rendering of XML formatted using the XSL-FO vocabulary into standard PDF files.
       </fo:block>
-      <fo:block-container border="1pt solid #E2E8F0" padding="10pt" background-color="#F8FAFC" border-radius="4px">
+      <fo:block-container border-style="solid" border-width="1pt" padding="10pt">
         <fo:block font-family="Helvetica" font-size="11pt" font-weight="bold" color="#334155" space-after="5pt">
           System Information
         </fo:block>
