@@ -124,6 +124,48 @@ export default function Dashboard() {
               </button>
             </div>
           ))}
+
+          {(!searchTerm || 'xml to pdf custom fo apache fop'.includes(searchTerm.toLowerCase())) && (
+            <div className="bg-white rounded-xl border border-slate-200 p-6 shadow-sm hover:shadow-md transition-all flex flex-col justify-between border-violet-100 hover:border-violet-300">
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-2.5 bg-violet-50 rounded-lg border border-violet-100 shadow-sm">
+                    <FileCode className="w-6 h-6 text-violet-600" />
+                  </div>
+                  <div>
+                    <h2 className="font-bold text-lg text-slate-800">XML to PDF (Custom FO)</h2>
+                    <span className="text-xs font-semibold px-2 py-0.5 bg-violet-100 text-violet-750 rounded-full border border-violet-200">
+                      ID: xml_custom
+                    </span>
+                  </div>
+                </div>
+                
+                <p className="text-sm text-slate-500 mb-6 leading-relaxed">
+                  Create a custom PDF document by supplying your own XML formatted with standard XSL-FO elements. Powered by Apache FOP engine.
+                </p>
+
+                <div className="mb-6">
+                  <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Input Fields</h4>
+                  <div className="flex flex-wrap gap-1.5">
+                    <span className="text-xs px-2 py-0.5 bg-slate-50 text-slate-600 rounded-md border border-slate-150">
+                      Document Title
+                    </span>
+                    <span className="text-xs px-2 py-0.5 bg-slate-50 text-slate-600 rounded-md border border-slate-150 font-mono">
+                      XSL-FO XML
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <button
+                onClick={() => navigate('/xml-generator')}
+                className="w-full flex items-center justify-center gap-2 py-2.5 px-4 border border-violet-200 rounded-lg text-sm font-semibold text-violet-700 hover:text-violet-600 hover:border-violet-500 hover:bg-violet-50/20 transition-all"
+              >
+                Use XML Input
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
+          )}
         </div>
       )}
     </div>

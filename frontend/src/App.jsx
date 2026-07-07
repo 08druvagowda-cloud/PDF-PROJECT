@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import Dashboard from './pages/Dashboard';
 import DocumentGenerator from './pages/DocumentGenerator';
 import DocumentHistory from './pages/DocumentHistory';
+import XmlGenerator from './pages/XmlGenerator';
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/generate/:templateId" element={<DocumentGenerator />} />
+            <Route path="/xml-generator" element={<XmlGenerator />} />
             <Route path="/history" element={<DocumentHistory />} />
           </Routes>
         </main>

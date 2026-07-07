@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { FileText, History, LayoutDashboard } from 'lucide-react';
+import { FileText, History, LayoutDashboard, FileCode } from 'lucide-react';
 
 export default function Navbar() {
   const location = useLocation();
@@ -31,6 +31,13 @@ export default function Navbar() {
             >
               <LayoutDashboard className="w-4 h-4" />
               Dashboard
+            </Link>
+            <Link
+              to="/xml-generator"
+              className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm gap-2 transition-colors ${isActive('/xml-generator')}`}
+            >
+              <FileCode className="w-4 h-4" />
+              XML to PDF
             </Link>
             <Link
               to="/history"

@@ -29,6 +29,7 @@ public class SpaFallbackController {
             "/",
             "/history",
             "/generate/**",
+            "/xml-generator",
             // Add any future top-level React routes here
     })
     public String spa() {

@@ -136,6 +136,7 @@ export default function DocumentHistory() {
               className="w-full pl-10 pr-4 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-emerald-200 focus:border-emerald-500 bg-white appearance-none cursor-pointer text-slate-700 font-medium"
             >
               <option value="">All Template Types</option>
+              <option value="xml_custom">XML Document</option>
               {templates.map(t => (
                 <option key={t.id} value={t.id}>{t.name}</option>
               ))}
@@ -183,7 +184,11 @@ export default function DocumentHistory() {
                       #{doc.id}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-50 text-emerald-700 border border-emerald-100">
+                      <span className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                        doc.templateId === 'xml_custom'
+                          ? 'bg-violet-50 text-violet-700 border border-violet-100'
+                          : 'bg-emerald-50 text-emerald-700 border border-emerald-100'
+                      }`}>
                         {doc.templateName}
                       </span>
                     </td>
